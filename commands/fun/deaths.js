@@ -34,7 +34,7 @@ module.exports = {
         const inGameName = interaction.options.getString('name');
 
         const { data: playerInfo } = await axios.get(`https://gameinfo-sgp.albiononline.com/api/gameinfo/search?q=${inGameName}`)
-        const player = playerInfo.players.find(data => data.Name === inGameName)
+        const player = playerInfo.players.find(data => data.Name === inGameName && data.GuildName === 'Minerva-X')
 
         const { data } = await axios.get(`https://gameinfo-sgp.albiononline.com/api/gameinfo/players/${player.Id}/deaths`)
 
